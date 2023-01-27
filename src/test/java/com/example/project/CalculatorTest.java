@@ -21,7 +21,7 @@ public class CalculatorTest {
 
     @ParameterizedTest(name = "{0} {3} {1} = {2}")
     @CsvSource({
-            "0,    1,   1, ADD",
+            "0,    2,   1, ADD",
             "1,    2,   3, ADD",
             "49,  51, 100, ADD",
             "105,  4, 101, SUBTRACT",
@@ -37,16 +37,20 @@ public class CalculatorTest {
     void testOperation(int first, int second, int expectedResult, String operation) {
         switch (operation) {
             case "ADD":
-                assertEquals(expectedResult, calculator.add(first, second));
+                assertEquals(expectedResult, calculator.add(first, second),
+                         first + " + " + second + " should equal " + expectedResult);
                 break;
             case "SUBTRACT":
-                assertEquals(expectedResult, calculator.subtract(first, second));
+                assertEquals(expectedResult, calculator.subtract(first, second),
+                         first + " - " + second + " should equal " + expectedResult);
                 break;
             case "MULTIPLY":
-                assertEquals(expectedResult, calculator.multiply(first, second));
+                assertEquals(expectedResult, calculator.multiply(first, second),
+                         first + " * " + second + " should equal " + expectedResult);
                 break;
             case "DIVIDE":
-                assertEquals(expectedResult, calculator.divide(first, second));
+                assertEquals(expectedResult, calculator.divide(first, second),
+                         first + " + " + second + " should equal " + expectedResult);
                 break;
         }
     }
