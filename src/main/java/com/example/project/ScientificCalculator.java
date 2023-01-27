@@ -18,4 +18,20 @@ public class ScientificCalculator {
             throw new RuntimeException("Connection failed");
         }
     }
+
+    public int subtract(int first, int second) {
+        if (this.connector.connect(url)) {
+            return first - second;
+        } else {
+            throw new RuntimeException("Connection failed");
+        }
+    }
+
+    public int multiply(int first, int second) {
+        if (this.connector.connect(url)) {
+            return first * second;
+        } else {
+            throw new RuntimeException("Connection failed");
+        }
+    }
 }
