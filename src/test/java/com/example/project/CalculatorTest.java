@@ -49,7 +49,7 @@ public class CalculatorTest {
     }
 
     @Test
-    @DisplayName("2 - 4 = 8")
+    @DisplayName("2 * 4 = 8")
     void multiplyTwoNumbers () {
         Calculator calculator = new Calculator();
         assertEquals(8, calculator.multiply(2, 4), "2 * 4 = 8");
@@ -74,7 +74,7 @@ public class CalculatorTest {
         assertEquals(3, calculator.divide(9, 3), "9 / 3 = 3");
     }
 
-    @ParameterizedTest(name = "{0} * {1} = {2}")
+    @ParameterizedTest(name = "{0} / {1} = {2}")
     @CsvSource({
             "3,    3,   1",
             "6,    2,   3",
