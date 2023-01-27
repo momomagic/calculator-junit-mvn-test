@@ -40,8 +40,8 @@ public class CalculatorTest {
     @CsvSource({
             "3,    1,   2",
             "6,    2,   4",
-            "11,    4,   7",
-            "18,    3,  15"
+            "11,   4,   7",
+            "18,   3,  15"
     }) void subtract(int first, int second, int expectedResult) {
         Calculator calculator = new Calculator();
         assertEquals(expectedResult, calculator.substract(first, second),
@@ -55,7 +55,7 @@ public class CalculatorTest {
         assertEquals(8, calculator.multiply(2, 4), "2 * 4 = 8");
     }
 
-    @ParameterizedTest(name = "{0} - {1} = {2}")
+    @ParameterizedTest(name = "{0} * {1} = {2}")
     @CsvSource({
             "2,    3,   6",
             "4,    2,   8",
@@ -67,5 +67,23 @@ public class CalculatorTest {
                 () -> first + " * " + second + " should equal " + expectedResult);
     }
 
+    @Test
+    @DisplayName("9 / 3 = 3")
+    void divideTwoNumbers () {
+        Calculator calculator = new Calculator();
+        assertEquals(3, calculator.divide(9, 3), "9 / 3 = 3");
+    }
+
+    @ParameterizedTest(name = "{0} * {1} = {2}")
+    @CsvSource({
+            "3,    3,   1",
+            "6,    2,   3",
+            "12,   3,   4",
+            "16,   8,   2"
+    }) void divide(int first, int second, int expectedResult) {
+        Calculator calculator = new Calculator();
+        assertEquals(expectedResult, calculator.divide(first, second),
+                () -> first + " * " + second + " should equal " + expectedResult);
+    }
 
 }

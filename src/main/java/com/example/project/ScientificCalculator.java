@@ -34,4 +34,12 @@ public class ScientificCalculator {
             throw new RuntimeException("Connection failed");
         }
     }
+
+    public int divide(int first, int second) {
+        if (this.connector.connect(url)) {
+            return first / second;
+        } else {
+            throw new RuntimeException("Connection failed");
+        }
+    }
 }

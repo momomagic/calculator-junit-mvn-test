@@ -56,4 +56,18 @@ public class ScientificCalculatorTest {
         when(connector.connect("http://dummy")).thenReturn(false);
         Assertions.assertThrows(RuntimeException.class, () -> scientificCalculator.multiply(3,2));
     }
+
+    @Test
+    public void testDivideShouldWorkIfConnectorSucceeded() {
+        ScientificCalculator scientificCalculator = new ScientificCalculator(connector, "http://dummy");
+
+        when(connector.connect("http://dummy")).thenReturn(true);
+
+        int expectedResult = scientificCalculator.divide(14,7);
+        Assertions.assertEquals(expectedResult, 2);
+        verify(connector).connect("http://dummy");
+
+        when(connector.connect("http://dummy")).thenReturn(false);
+        Assertions.assertThrows(RuntimeException.class, () -> scientificCalculator.multiply(14,7));
+    }
 }
